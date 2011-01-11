@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+
+<script language="javascript">
+$(document).ready(function(){
+						   $('li.level-1 a:not("ul.level-2 li a")').focus(function() {
+															//alert('I have focus');
+															$('li.level-1').removeClass('active').children('ul.level-2').fadeOut('fast');
+															$(this).parents('li').addClass('active').children('ul.level-2').fadeIn('slow');
+															$('*:not("ul.level-2 li a,li.level-1 a")').focus(function(){$('li.level-1').removeClass('active').children('ul.level-2').fadeOut('fast');});
+															});
+						   $('li.level-1 a:not("ul.level-2 li a")').hover(function() {
+															//alert('I have focus');
+															$('li.level-1').removeClass('active').children('ul.level-2').fadeOut('fast');
+															$(this).parents('li').addClass('active').children('ul.level-2').fadeIn('slow');
+															}, function(){
+																$('ul.level-2').hover(function(){}, function(){$('li.level-1').removeClass('active').children('ul.level-2').fadeOut('fast');});});
+						   
+						   
+						   });
+</script>
+<style media="all" type="text/css">
+* {margin:0; padding:0; list-style-type:none; border:none;}
+div.wrapper {width:960px; margin:20px auto; height:auto; overflow:hidden;}
+div.content {padding:20px;clear:both; position:relative; top:20px;}
+div.content p {margin:10px auto; text-indent:20px;}
+div#navigation, div#navigation2 {width:960px; height:auto; display:block;overflow:hidden;position:static; top: 0; left:0; z-index:1;margin:0 auto;}
+#navigation ul {width:960px; background:url(nav-bg.png) top left repeat-x; height:50px;position:absolute; z-index:1;}
+#navigation ul li.level-1 {width:auto; height:50px; float:left; display:inline; text-align:center;padding:0 .5em;}
+#navigation ul li.level-1 a {font-weight:bold; color:#333; text-decoration:none; width:100%; height:30px;display:block;text-align:center;position:relative;z-index:3;padding-top:10px;}
+
+#navigation ul li.level-1.active {background:url(nav-bg.png) 0 -100px repeat-x;}
+#navigation ul li.level-1.active a {color:#fff;background:url(nav-bg.png) center -160px no-repeat;}
+#navigation ul li.level-1.active ul.level-2 li a {background:none;}
+#navigation ul li.level-1 ul.level-2  {background:url(nav-bg.png) 0 -50px repeat-x;width:960px; position:absolute; z-index:2; clear:both;text-align:left; left:0;}
+#navigation ul li.level-1 ul.level-2  li{width:auto; float:left; display:inline; height:40px; text-align:center;padding:.5em;}
+#navigation ul li.level-1 ul.level-2  li a {padding-top:10px; color:#fff; display:block; width:100%; height:100%;}
+#navigation ul li.level-1 ul.level-2  li a:hover{ text-decoration:underline;}
+
+
+#navigation2 ul {width:960px; background:url(nav-bg.png) top left repeat-x; height:50px;position:absolute; z-index:1;}
+#navigation2 ul li.level-1 {width:auto; height:50px; float:left; display:inline; text-align:center;padding:0 .5em;}
+#navigation2 ul li.level-1 a {font-weight:bold; color:#333; text-decoration:none; width:100%; height:30px;display:block;text-align:center;position:relative;z-index:3;padding-top:10px;}
+
+#navigation2 ul li.level-1.active {background:url(nav-bg.png) 0 -100px repeat-x;}
+#navigation2 ul li.level-1.active a {color:#fff;background:url(nav-bg.png) center -160px no-repeat;}
+#navigation2 ul li.level-1.active ul.level-2 li a {background:none;}
+#navigation2 ul li.level-1 ul.level-2  {background:none;width:auto; height:100%;position:absolute; z-index:2; clear:both;text-align:left;margin-left:-8px;}
+#navigation2 ul li.level-1 ul.level-2  li{background:none #000;width:auto; float:none;clear:both; display:block; height:auto; text-align:center;padding:.25em;}
+#navigation2 ul li.level-1 ul.level-2  li a {padding-top:10px; color:#fff; display:block; width:100%; height:100%;text-align:left;}
+#navigation2 ul li.level-1 ul.level-2  li a:hover{background:#333; text-decoration:underline;}
+ul.level-2  {display:none;}
+</style>
+<!--[if IE 6]>
+<style media="all" type="text/css">
+#navigation ul {background:url(nav-bar-ie.png) top left repeat-x;;}
+#navigation ul li.level-1.active {background:url(nav-bar-ie.png) 0 -100px repeat-x;}
+#navigation ul li.level-1 ul.level-2  {background:url(nav-bar-ie.png) 0 -50px repeat-x;}
+#navigation ul li.level-1.active a {background:url(nav-bar-ie.png) center -160px no-repeat;}
+#navigation ul li.level-1 {width:75px; height:50px; float:left; display:inline; text-align:center;padding:0 .5em;}
+
+#navigation ul li.level-1 ul.level-2  li{width:75px; float:left; display:inline; height:25px; text-align:center;padding:.5em;}
+#navigation ul li.level-1 ul.level-2  li a {padding-top:10px; color:#fff; display:block; width:100%; height:100%;}
+
+#navigation2 ul {background:url(nav-bar-ie.png) top left repeat-x;;}
+#navigation2 ul li.level-1.active {background:url(nav-bar-ie.png) 0 -100px repeat-x;}
+
+#navigation2 ul li.level-1.active a {background:url(nav-bar-ie.png) center -160px no-repeat;}
+#navigation2 ul li.level-1 {width:75px; height:50px; float:left; display:inline; text-align:center;padding:0 .5em;}
+
+
+#navigation2 ul li.level-1 ul.level-2{margin-left:-45px;}
+#navigation2 ul li.level-1 ul.level-2 li { width:83px;}
+ul.level-2  {display:none;}
+</style>
+<![endif]-->
+</head>
+
+<body>
+<div class="wrapper">
+<div id="navigation" class="nav">
+
+	<ul>
+	  <li class="level-1" id="li1"><a href="">Home</a>
+	      <ul class="level-2">
+	        <li><a href="">Section 1</a></li>
+	        <li><a href="">Section 2</a></li>
+	        <li><a href="">Section 3</a></li>
+	        <li><a href="">Section 4</a></li>
+	        <li><a href="">Section 5</a></li>
+	      </ul>
+	    </li>
+	  <li class="level-1" id="li2"><a href="">About </a>
+	      <ul class="level-2">
+	        <li><a href="">About 1</a></li>
+	        <li><a href="">About 2</a></li>
+	        <li><a href="">About 3</a></li>
+	        <li><a href="">About 4</a></li>
+	        <li><a href="">About 5</a></li>
+	      </ul>
+	   </li>
+	  <li class="level-1" id="li3"><a href="">Classes</a>
+	      <ul class="level-2">
+	        <li><a href="">Marketing</a></li>
+	        <li><a href="">Sales</a></li>
+	        <li><a href="">Taxes</a></li>
+	        <li><a href="">Insurance</a></li>
+	        <li><a href="">Employees</a></li>
+	      </ul>
+	    </li>
+	  <li class="level-1" id="li4"><a href="">Symposium</a>
+	      <ul class="level-2">
+	        <li><a href="">Phoenix</a></li>
+	        <li><a href="">Chicago</a></li>
+	        <li><a href="">Denver</a></li>
+	        <li><a href="">Portland</a></li>
+	        <li><a href="">Atlanta</a></li>
+	      </ul>
+	    </li>
+	  <li class="level-1" id="li5"><a href="">Login</a>
+	      <ul class="level-2">
+	        <li><a href="">Test</a></li>
+	        <li><a href="">Test</a></li>
+	        <li><a href="">Test</a></li>
+	        <li><a href="">Test</a></li>
+	        <li><a href="">Test</a></li>
+	      </ul>
+	    </li>
+	</ul>
+</div>
+<div class="content">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed leo quam, gravida fringilla ultricies quis, consectetur at lorem. Nulla porttitor venenatis pharetra. Vestibulum ullamcorper sapien at nulla elementum eu hendrerit magna imperdiet. Donec scelerisque aliquet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Ut massa massa</a>, bibendum quis fringilla sit amet, laoreet nec arcu. Pellentesque ac mauris eget sem faucibus euismod. Ut vulputate vehicula purus nec venenatis. Praesent eros magna, cursus vitae aliquam non, dictum in arcu. Phasellus condimentum neque a sapien mattis ultrices. Vestibulum tellus nibh, gravida eget pellentesque eu, eleifend ut mi.</p>
+
+<p>Donec ut augue nisl, in lobortis est. Donec lacus mauris, iaculis vitae condimentum non, luctus non nisi. Donec sed vestibulum ligula. Nunc adipiscing ultrices mi, at molestie mi blandit vulputate. Etiam adipiscing cursus egestas. Integer sit amet dui sit amet dolor condimentum molestie et vel augue. Pellentesque varius dictum diam, vitae sollicitudin odio rhoncus vitae. Cras eget odio nec odio aliquet fermentum non in est. Curabitur a justo risus. Nam ac nibh libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mi orci, aliquam a lobortis id, euismod vel leo. Nulla nisl dui, sodales ac sollicitudin in, tristique et felis. </p>
+</div>
+</div>
+<div class="wrapper">
+<div id="navigation2" class="nav">
+
+	<ul>
+	  <li class="level-1" id="li1"><a href="">Home</a>
+	      <ul class="level-2">
+	        <li><a href="">Section 1</a></li>
+	        <li><a href="">Section 2</a></li>
+	        <li><a href="">Section 3</a></li>
+	        <li><a href="">Section 4</a></li>
+	        <li><a href="">Section 5</a></li>
+	      </ul>
+	    </li>
+	  <li class="level-1" id="li2"><a href="">About </a>
+	      <ul class="level-2">
+	        <li><a href="">About 1</a></li>
+	        <li><a href="">About 2</a></li>
+	        <li><a href="">About 3</a></li>
+	        <li><a href="">About 4</a></li>
+	        <li><a href="">About 5</a></li>
+	      </ul>
+	   </li>
+	  <li class="level-1" id="li3"><a href="">Classes</a>
+	      <ul class="level-2">
+	        <li><a href="">Marketing</a></li>
+	        <li><a href="">Sales</a></li>
+	        <li><a href="">Taxes</a></li>
+	        <li><a href="">Insurance</a></li>
+	        <li><a href="">Employees</a></li>
+	      </ul>
+	    </li>
+	  <li class="level-1" id="li4"><a href="">Symposium</a>
+	      <ul class="level-2">
+	        <li><a href="">Phoenix</a></li>
+	        <li><a href="">Chicago</a></li>
+	        <li><a href="">Denver</a></li>
+	        <li><a href="">Portland</a></li>
+	        <li><a href="">Atlanta</a></li>
+	      </ul>
+	    </li>
+	  <li class="level-1" id="li5"><a href="">Login</a>
+	      <ul class="level-2">
+	        <li><a href="">Test</a></li>
+	        <li><a href="">Test</a></li>
+	        <li><a href="">Test</a></li>
+	        <li><a href="">Test</a></li>
+	        <li><a href="">Test</a></li>
+	      </ul>
+	    </li>
+	</ul>
+</div>
+<div class="content">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed leo quam, gravida fringilla ultricies quis, consectetur at lorem. Nulla porttitor venenatis pharetra. Vestibulum ullamcorper sapien at nulla elementum eu hendrerit magna imperdiet. Donec scelerisque aliquet blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="">Ut massa massa</a>, bibendum quis fringilla sit amet, laoreet nec arcu. Pellentesque ac mauris eget sem faucibus euismod. Ut vulputate vehicula purus nec venenatis. Praesent eros magna, cursus vitae aliquam non, dictum in arcu. Phasellus condimentum neque a sapien mattis ultrices. Vestibulum tellus nibh, gravida eget pellentesque eu, eleifend ut mi.</p>
+
+<p>Donec ut augue nisl, in lobortis est. Donec lacus mauris, iaculis vitae condimentum non, luctus non nisi. Donec sed vestibulum ligula. Nunc adipiscing ultrices mi, at molestie mi blandit vulputate. Etiam adipiscing cursus egestas. Integer sit amet dui sit amet dolor condimentum molestie et vel augue. Pellentesque varius dictum diam, vitae sollicitudin odio rhoncus vitae. Cras eget odio nec odio aliquet fermentum non in est. Curabitur a justo risus. Nam ac nibh libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut mi orci, aliquam a lobortis id, euismod vel leo. Nulla nisl dui, sodales ac sollicitudin in, tristique et felis. </p>
+</div>
+</div>
+</body>
+</html>

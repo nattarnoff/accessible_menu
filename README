@@ -1,0 +1,7 @@
+This is an experiment that I did for use on a website. I noticed that most drop down menus weren't able to be navigated by keyboard. Some would allow you to move across links but if you weren't using a screen reader or looking at your status bar you would have no clue what was going on.
+
+This uses jquery to show both a focus event for the keyboard as well as a hover event for mouse use. The entire thing is composed of ULs with Lis so it is semantic and easily read as a series of lists with sub-lists by a screen reader. 
+
+I have implemented on a couple of websites. Feel free to use this, I only ask that you link back to the github repository: https://github.com/gtarnoff/accessible_menu
+
+And yes it does currently work in IE6 with some conditional statements for CSS.
